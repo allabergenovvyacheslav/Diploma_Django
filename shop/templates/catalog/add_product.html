@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Добавить товар{% endblock %}
+
+{% block content %}
+    <h3>Добавить новый товар</h3>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Название</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="category">Категория</label>
+        <select id="category" name="category" required>
+            <option value="Штучный паркет">Штучный паркет</option>
+            <option value="Широкоформатный паркет">Широкоформатный паркет</option>
+            <option value="Лак для паркета">Лак для паркета</option>
+            <option value="Клей для паркета">Клей для паркета</option>
+        </select>
+
+        <label for="price">Цена за единицу</label>
+        <input type="number" id="price" name="price" required>
+
+        <button type="submit">Добавить</button>
+    </form>
+{% endblock %}

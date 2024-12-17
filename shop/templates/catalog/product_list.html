@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Список товаров{% endblock %}
+
+{% block content %}
+    <h3>Список товаров</h3>
+<!-- Навигация для фильтрации -->
+<nav>
+    <h3>
+        <a href="?">Все товары</a> |
+        <a href="?category=Штучный паркет">Штучный паркет</a> |
+        <a href="?category=Широкоформатный паркет">Широкоформатный паркет</a> |
+        <a href="?category=Лак для паркета">Лак для паркета</a> |
+        <a href="?category=Клей для паркета">Клей для паркета</a>
+    </h3>
+</nav>
+<!-- Вывод списка товаров -->
+<ul>
+    {% for product in products %}
+        <h4>
+            <li>{{ product.name }} - {{ product.price }} руб.</li>
+        </h4>
+    {% endfor %}
+</ul>
+{% endblock %}
