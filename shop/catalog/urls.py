@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import product_list, add_product
+from .views import product_list, home, contact_view
 
 # '' пробел в кавычках означает главную страницу
 urlpatterns = [
-    path('', product_list, name='product_list'),
-    path('add/', add_product, name='add_product'),
+    path('', home, name='home'), # Главная страница
+    path('products/', product_list, name='product_list'),
+    path('contact/', contact_view, name='contact'),
 ]

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+    <h2>Лучшие предложения на материалы для паркетных работ</h2>
+    <h3>Категории товаров</h3>
+    <ul>
+        {% for category in categories %}
+            <li>
+                <a href="/category/{{ category.name|urlencode}}/">{{ category.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
