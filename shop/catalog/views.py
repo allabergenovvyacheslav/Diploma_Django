@@ -3,7 +3,7 @@ from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.views import View
 from .forms import ContactForm, ReviewForm
-from .models import Product, Category, Review
+from .models import Product, Category, Review, Work
 
 
 # Create your views here.
@@ -69,3 +69,8 @@ def product_reviews(request, product_id):
 def reviews_all(request):
     reviews = Review.objects.all()
     return render(request, 'catalog/reviews_all_products.html', {'reviews': reviews})
+
+
+def works_page(request):
+    works = Work.objects.all()
+    return render(request, 'catalog/works_page.html', {'works': works})

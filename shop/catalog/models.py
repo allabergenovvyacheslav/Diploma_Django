@@ -33,3 +33,10 @@ class Review(models.Model):
 
     def __str__(self):
         return f'Отзыв от {self.author}'
+
+
+class Work(models.Model):
+    image = models.ImageField(upload_to='catalog/works/')
+
+    def __str__(self):
+        return self.image
