@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Отзывы{% endblock %}
+
+{% block content %}
+    <h3>Все отзывы</h3>
+    <!-- Список отзывов -->
+        <div class="reviews">
+            {% for review in reviews %}
+            <div class="review">
+                <p><strong>{{ review.author }}</strong> ({{ review.rating }}/5)</p>
+                <p>{{ review.comment }}</p>
+                <p class="text-muted">{{ review.created_at|date:"d M Y H:i" }}</p>
+            </div>
+            <hr>
+            {% empty %}
+            <p>Пока нет отзывов. Будьте первым, кто оставит отзыв!</p>
+        </div>
+        {% endfor %}
+{% endblock %}

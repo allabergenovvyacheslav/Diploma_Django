@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
+from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.views import View
-from .forms import ContactForm
-from .models import Product, Category
+from .forms import ContactForm, ReviewForm
+from .models import Product, Category, Review
+
 
 # Create your views here.
 
@@ -10,16 +12,17 @@ from .models import Product, Category
 def home(request):
     # Получаем все категории
     categories = Category.objects.all()
-    return render(request, 'catalog/home.html', {'categories': categories,})
+    return render(request, 'catalog/home.html', {'categories': categories})
 
 
-# Создание представления для отображения списка товаров из БД
-def product_list(request):
-    products = Product.objects.all()  # Получаем все товары из базы данных
-    return render(request, 'catalog/product_list.html', {'products': products})
+# Создание представления для отображения списка товаров из выбранной категории
+def products_by_category(request, category_name):
+    products = Product.objects.filter(category__name=category_name)
+    return render(request, 'catalog/products_by_category.html',
+                  {'category_name': category_name, 'products': products})
 
 
-# Создание представления для обработки формы
+# Создание представления для обработки формы обратной связи
 def contact_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -33,55 +36,36 @@ def contact_view(request):
     return render(request, 'catalog/contact.html', {'form': form})
 
 
+# Создание представления для каталога с пагинацией
+def product_list(request):
+    # Получаем все товары
+    products = Product.objects.all()
+    # Создаём пагинатор (3 товара на страницу)
+    paginator = Paginator(products, 3)
+    # Получаем текущую страницу из запроса
+    page_number = request.GET.get('page', 1)
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'catalog/product_list.html', {'page_obj': page_obj})
 
 
-# products = [
-#     {'id': 1, 'name': 'дуб натур 420х70х15', 'category': 'Штучный паркет', 'price': 2500},
-#     {'id': 2, 'name': 'дуб селект 420х70х15', 'category': 'Штучный паркет', 'price': 3200},
-#     {'id': 3, 'name': 'дуб рустик 420х70х15', 'category': 'Штучный паркет', 'price': 1900},
-#     {'id': 4, 'name': 'дуб натур 900х90х15', 'category': 'Широкоформатный паркет', 'price': 3000},
-#     {'id': 5, 'name': 'дуб селект 900х90х15', 'category': 'Широкоформатный паркет', 'price': 3900},
-#     {'id': 6, 'name': 'дуб рустик 900х90х15', 'category': 'Широкоформатный паркет', 'price': 2300},
-#     {'id': 7, 'name': 'Berger Eco Gold', 'category': 'Лак для паркета', 'price': 15000},
-#     {'id': 8, 'name': 'Berger Ceramic Star', 'category': 'Лак для паркета', 'price': 20000},
-#     {'id': 9, 'name': 'Korvicol MS Elastic', 'category': 'Клей для паркета', 'price': 5500},
-#     {'id': 10, 'name': 'Korvicol 2KPU', 'category': 'Клей для паркета', 'price': 15000},
-# ]
-#
-#
-# def product_list(request):
-#     # Получаем параметр 'category' из строки запроса
-#     category = request.GET.get('category')
-#
-#     # Если категория указана, фильтруем товары
-#     if category:
-#         filtered_products = [product for product in products if product['category'] == category]
-#     else:
-#         filtered_products = products
-#
-#     # Передаем товары в шаблон
-#     return render(request, 'catalog/product_list.html', {'products': filtered_products})
-#
-#
-# def add_product(request):
-#     if request.method == 'POST':
-#
-#         # Получаем данные из формы
-#         name = request.POST.get('name')
-#         category = request.POST.get('category')
-#         price = request.POST.get('price')
-#
-#         # Добавляем новый товар в список
-#         products.append(
-#             {
-#                 'id': len(products) + 1,
-#                 'name': name,
-#                 'category': category,
-#                 'price': int(price),
-#             }
-#         )
-#         # Перенаправляем на список товаров
-#         return redirect('product_list')  # Имя маршрута списка товаров
-#
-#     # Если GET-запрос, отображаем форму
-#     return render(request, 'catalog/add_product.html')
+# Создание представления для отображения отзывов
+def product_reviews(request, product_id):
+    product = get_object_or_404(Product, id=product_id)  # Если объект не найден, возникает исключение Http404
+    reviews = product.reviews.all()  # Получаем все отзывы для продукта
+
+    if request.method == 'POST':  # запрос выполнен с использованием метода POST
+        form = ReviewForm(request.POST)
+        if form.is_valid():  # проверяет, корректна ли форма
+            review = form.save(commit=False)  # возвращает объект, который ещё не сохранён в БД
+            review.product = product  # Связываем отзыв с продуктом
+            review.save()  # сохраняем
+            return redirect('product_reviews', product_id=product.id)  # Перенаправляем на ту же страницу
+    else:
+        form = ReviewForm()
+    return render(request, 'catalog/product_reviews.html',
+                  {'product': product, 'reviews': reviews, 'form': form})
+
+
+def reviews_all(request):
+    reviews = Review.objects.all()
+    return render(request, 'catalog/reviews_all_products.html', {'reviews': reviews})

@@ -1,25 +1,68 @@
 {% extends 'base.html' %}
 
-{% block title %}Список товаров{% endblock %}
+{% block title %}Каталог товаров{% endblock %}
 
 {% block content %}
-    <h3>Список товаров</h3>
-<!-- Навигация для фильтрации -->
-<nav>
-    <h3>
-        <a href="?">Все товары</a> |
-        <a href="?category=Штучный паркет дуб">Штучный паркет дуб</a> |
-        <a href="?category=Широкоформатный паркет дуб">Широкоформатный паркет дуб</a> |
-        <a href="?category=Паркетная химия. Лак для паркета">Паркетная химия. Лак для паркета</a> |
-        <a href="?category=Паркетная химия. Клей для паркета">Паркетная химия. Клей для паркета</a>
-    </h3>
-</nav>
-<!-- Вывод списка товаров -->
-<ul>
-    {% for product in products %}
-        <h4>
-            <li>{{ product.name }} - {{ product.price }} руб.</li>
-        </h4>
-    {% endfor %}
-</ul>
+    <h3>Каталог товаров</h3>
+
+            <!-- Сетка товаров -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for product in page_obj %} <!-- Каждая карточка товара -->
+        <div class="col">
+            <div class="card h-100"> <!-- Карточка Bootstrap с высотой, заполняющей колонку -->
+                <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5> <!--Название товара -->
+                <p class="card-text">{{ product.description }}</p> <!-- Описание товара -->
+                <p class="card-text"><strong>{{ product.price }} руб.</strong></p> <!-- Цена товара -->
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Навигация по страницам (пагинация) -->
+    <nav class="mt-4">
+        <ul class="pagination justify-content-center">
+
+            <!-- Кнопка "Назад" -->
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <!-- Ссылка на предыдущую страницу -->
+                <a class="page-link" href="?page={{page_obj.previous_page_number }}">Назад</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <!--Заблокированная кнопка, если предыдущей страницы нет -->
+                <span class="page-link">Назад</span>
+            </li>
+            {% endif %}
+            <!-- Номера страниц -->
+            {% for num in page_obj.paginator.page_range %} <!--Перебирает все страницы-->
+                {% if num == page_obj.number %}
+                    <li class="page-item active">
+                    <!--Активная страница -->
+                    <span class="page-link">{{ num }}</span>
+                    </li>
+                {% elif num > page_obj.number|add:-2 and num < page_obj.number|add:2 %}
+                    <li class="page-item">
+                    <!-- Ссылка на соседние страницы -->
+                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            <!-- Кнопка "Вперёд" -->
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <!-- Ссылка на следующую страницу -->
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Вперёд</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <!--Заблокированная кнопка, если следующей страницы нет -->
+                    <span class="page-link">Вперёд</span>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
 {% endblock %}

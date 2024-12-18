@@ -10,6 +10,28 @@ header {
     text-align: center;
 }
 
+main {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    flex-direction: column;
+}
+
+a {
+    color: #8a5832;
+}
+
+a:visited {
+    color: #5f030f;
+}
+
+a:hover {
+    color: #2706e2;
+    text-decoration: underline;
+}
+
 img {
     border-radius: 50%;
 }
@@ -18,10 +40,15 @@ h2 {
     color: #333;
 }
 
+.btn {
+    background-color: #8a5832;
+    color: #fff
+}
+
 footer {
-  display: flex;
-  justify-content: center;
-  padding: 5px;
-  background-color: #8a5832;
-  color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color: #8a5832;
+    color: #fff;
 }
