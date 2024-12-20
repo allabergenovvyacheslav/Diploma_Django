@@ -8,7 +8,7 @@ from .models import Product, Category, Review, Work
 
 # Create your views here.
 
-# Представление для главной страницы
+# Создаем представление для главной страницы
 def home(request):
     # Получаем все категории
     categories = Category.objects.all()
