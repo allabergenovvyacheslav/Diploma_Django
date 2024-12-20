@@ -8,15 +8,15 @@
     <h3>Категории товаров</h3>
 
     <div class="row">
-
-<div class="col-3 col-s-3 menu">
-  <ul>
-    {% for category in categories %}
-            <li><h5>
-                <a href="/category/{{ category.name|urlencode}}/">{{ category.name }}</a>
-                </h5>
-            </li>
-        {% endfor %}
-  </ul>
-</div>
+        <div class="col-3 col-s-3 menu">
+            <ul>
+                {% for category in categories %}
+                <li><h5>
+                    <a href="/category/{{ category.name|urlencode}}/">{{ category.name }}</a>
+                    </h5>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 {% endblock %}
