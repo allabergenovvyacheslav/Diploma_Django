@@ -5,16 +5,20 @@
 {% block content %}
     <h3>Все отзывы</h3>
     <!-- Список отзывов -->
-        <div class="reviews">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {% for review in reviews %}
-            <div class="review">
-                <p><strong>{{ review.author }}</strong> ({{ review.rating }}/5)</p>
-                <p>{{ review.comment }}</p>
-                <p class="text-muted">{{ review.created_at|date:"d M Y H:i" }}</p>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                    <p><strong>{{ review.author }}</strong> ({{ review.rating }}/5)</p>
+                    <p>{{ review.comment }}</p>
+                    <p class="text-muted">{{ review.created_at|date:"d M Y H:i" }}</p>
+                    </div>
+                </div>
             </div>
-            <hr>
             {% empty %}
-            <p>Пока нет отзывов. Будьте первым, кто оставит отзыв!</p>
+                <p>Пока нет отзывов. Будьте первым, кто оставит отзыв!</p>
+            {% endfor %}
         </div>
-        {% endfor %}
+
 {% endblock %}

@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fad3d65-a538-439a-9c13-655f2bd6f8a9" name="Changes" comment="18.12.2024" />
+    <list default="true" id="6fad3d65-a538-439a-9c13-655f2bd6f8a9" name="Changes" comment="18.12.2024">
+      <change afterPath="$PROJECT_DIR$/shop/catalog/static/catalog/images/000.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/catalog/static/catalog/images/select.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/python_Diploma_Django.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python_Diploma_Django.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/catalog/static/catalog/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/shop/catalog/static/catalog/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/templates/catalog/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/catalog/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/templates/catalog/products_by_category.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/catalog/products_by_category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/templates/catalog/reviews_all_products.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/catalog/reviews_all_products.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,12 +37,12 @@
     &quot;assignee&quot;: &quot;allabergenovvyacheslav&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/allabergenovvyacheslav/python_Diploma_Django&quot;,
-    &quot;accountId&quot;: &quot;f48d88a6-ab8e-4c06-9b18-c78c3ca5e065&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/allabergenovvyacheslav/Diploma_Django.git",
+    "accountId": "f48d88a6-ab8e-4c06-9b18-c78c3ca5e065"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -53,10 +63,16 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\WED\Desktop\Diploma_Django\shop\catalog\static\catalog\images" />
+      <recent name="C:\Users\WED\Desktop\Diploma_Django\shop\catalog\static\catalog" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-48aec45f0201-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17011.127" />
+        <option value="bundled-python-sdk-975db3bf15a3-31b6be0877a2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.18034.82" />
       </set>
     </attachedChunks>
   </component>

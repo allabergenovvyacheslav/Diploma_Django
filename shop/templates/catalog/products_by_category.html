@@ -4,12 +4,16 @@
 
 {% block content %}
     <h3>Товары в категории: {{ category_name }}</h3>
-    <ul>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {% for product in products %}
-        <li>
-            <strong>{{ product.name }}</strong> - {{ product.price }} руб.<br>
-            Описание: {{ product.description }}
-        </li>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }} - {{ product.price }} руб.<br></h5>
+                    <p>class="card-text">Описание: {{ product.description }}</p>
+                </div>
+            </div>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}

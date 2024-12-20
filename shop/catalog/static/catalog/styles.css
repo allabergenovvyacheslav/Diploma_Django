@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #dbb395
+    background-image: url('images/000.jpg');
 }
 
 header {
@@ -19,8 +19,30 @@ main {
     flex-direction: column;
 }
 
+.row:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+    width: 100%;
+}
+
+.menu li {
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color :#8a5832;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.menu li:hover {
+    background-color: #e6ba9a;
+}
+
 a {
-    color: #8a5832;
+    color: #402715;
 }
 
 a:visited {
@@ -33,7 +55,7 @@ a:hover {
 }
 
 img {
-    border-radius: 50%;
+    border-radius: 20%;
 }
 
 h2 {
@@ -48,7 +70,10 @@ h2 {
 footer {
     display: flex;
     justify-content: center;
-    padding: 5px;
+    padding: 10px;
     background-color: #8a5832;
     color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
