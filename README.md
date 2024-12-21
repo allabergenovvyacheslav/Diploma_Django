@@ -77,9 +77,9 @@ Django можно использовать везде, где есть боль�
 <li>Модуль 19. Django в Python. Дополнительный модуль</li><br>
 
 Использованные материалы интернет ресурсов:
-<li>habr.com</li>
-<li>YouTube-канал «Про Python»</li>
-<li>docs-python.ru</li><br>
+<li>[habr.com](https://habr.com/ru</li>
+<li>[YouTube-канал «Про Python»](https://www.youtube.com/user/zaemiel)</li>
+<li>[docs-python.ru](https://docs-python.ru/)</li><br>
 Использованная документация:
 <li>https://fastapi.tiangolo.com/ru/</li>
 <li>https://docs.aiogram.dev/</li>
