@@ -211,8 +211,21 @@ Django можно использовать везде, где есть боль�
 
 ![django_work](https://github.com/user-attachments/assets/f0ed0bec-030f-440b-a0f4-a2986b3e6043)
 
-<b>Aiogram.</b> Результат работы чат-бота
+<b>Aiogram.</b> Результат работы чат-бота. Реализован старт проекта с приветствием пользователя по nic:<br>
 
+![aiogram_1](https://github.com/user-attachments/assets/0379bd37-7217-485b-a55f-f0cb5b14caaa)
+
+Созданы keyboards и inlinekeyboards, подключена кнопка возврата в меню "назад":<br>
+
+![aiogram_2](https://github.com/user-attachments/assets/19dc8c0f-ad55-460b-a3a8-1a64b92ad909)
+
+Реализован блок "прайс-лист" с меню и изображениями:<br>
+
+![aiogram_3](https://github.com/user-attachments/assets/2c565d6b-f7bf-41cd-8323-f22bdefb78be)
+
+Блок меню "наши работы с изображениями и ссылкой на http:
+
+![aiogram_5](https://github.com/user-attachments/assets/a4102118-a325-4140-8a39-c8ab442e2171)
 
 
 
