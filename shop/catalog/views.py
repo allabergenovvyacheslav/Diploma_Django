@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.views import View
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, authenticate
 from .forms import ContactForm, ReviewForm
 from .models import Product, Category, Review, Work
 
@@ -69,6 +71,24 @@ def product_reviews(request, product_id):
 def reviews_all(request):
     reviews = Review.objects.all()
     return render(request, 'catalog/reviews_all_products.html', {'reviews': reviews})
+
+
+# Создание представления регистрации пользователя
+def sign_up_by_website(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # получаем имя пользователя и пароль из формы
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            # выполняем аутентификацию
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('/') # возвращаемся на главную
+    else:
+        form = UserCreationForm()
+    return render(request, 'catalog/registration_page.html', {'form': form})
 
 
 def works_page(request):
