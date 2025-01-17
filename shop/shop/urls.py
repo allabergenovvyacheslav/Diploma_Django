@@ -19,6 +19,6 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # Подключение маршрутов catalog
-    path('', include('catalog.urls')),
+    path('', include('catalog.urls')), # подключение маршрутов catalog
+    path('__debug__/', include('debug_toolbar.urls')), # подключение маршрутов Debug Toolbar
 ]
