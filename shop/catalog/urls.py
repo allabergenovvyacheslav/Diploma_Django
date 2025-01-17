@@ -13,4 +13,7 @@ urlpatterns = [
     path('category/<str:category_name>/', products_by_category, name='products_by_category'),
     path('products/<int:product_id>/reviews/', product_reviews, name='product_reviews'),
     path('website_sign_up/', sign_up_by_website, name='sign_up_by_website'),
+    path('api/categories/', category_list_api, name='category_list_api'), # API для категорий
+    path('api/products/', product_list_api, name='product_list_api'), # API для товаров
+    path('api/products/<int:product_id>/reviews', review_list, name='review_list'), # API для отзывов
 ]

@@ -4,8 +4,13 @@ from django.http import HttpResponse
 from django.views import View
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
+
 from .forms import ContactForm, ReviewForm
 from .models import Product, Category, Review, Work
+from .serializers import CategorySerializer, ProductSerializer, ReviewSerializer
 
 
 # Create your views here.
@@ -55,7 +60,7 @@ def product_reviews(request, product_id):
     product = get_object_or_404(Product, id=product_id)  # Если объект не найден, возникает исключение Http404
     reviews = product.reviews.all()  # Получаем все отзывы для продукта
 
-    if request.method == 'POST':  # запрос выполнен с использованием метода POST
+    if request.method == 'POST':  # если запрос выполнен с использованием метода POST
         form = ReviewForm(request.POST)
         if form.is_valid():  # проверяет, корректна ли форма
             review = form.save(commit=False)  # возвращает объект, который ещё не сохранён в БД
@@ -66,6 +71,21 @@ def product_reviews(request, product_id):
         form = ReviewForm()
     return render(request, 'catalog/product_reviews.html',
                   {'product': product, 'reviews': reviews, 'form': form})
+
+
+# Создание представления для работы с отзывами API
+@api_view(['GET', 'POST'])
+def review_list(request, product_id):
+    if request.method == 'GET': # при GET запросе извлекаем из БД данные по product_id и возвращаем в ответе
+        reviews = Review.objects.filter(product_id=product_id)
+        serializer = ReviewSerializer(reviews, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST': # при POST принимаем данные от пользователя, проверяем, если данные валидны сохраняем
+        serializer = ReviewSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
 
 
 def reviews_all(request):
@@ -94,3 +114,24 @@ def sign_up_by_website(request):
 def works_page(request):
     works = Work.objects.all()
     return render(request, 'catalog/works_page.html', {'works': works})
+
+# Создание представления для API
+@api_view(['GET'])
+def category_list_api(request):
+    categories = Category.objects.all()
+    serializer = CategorySerializer(categories, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET', 'POST'])
+def product_list_api(request):
+    if request.method == 'GET':
+        products = Product.objects.all()
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = ProductSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)

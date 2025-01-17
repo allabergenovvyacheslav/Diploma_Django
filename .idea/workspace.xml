@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fad3d65-a538-439a-9c13-655f2bd6f8a9" name="Changes" comment="20/12/2024">
+      <change afterPath="$PROJECT_DIR$/shop/catalog/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/catalog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/catalog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/catalog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/catalog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/shop/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/shop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/shop/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -29,12 +34,12 @@
     &quot;assignee&quot;: &quot;allabergenovvyacheslav&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/allabergenovvyacheslav/Diploma_Django.git",
-    "accountId": "f48d88a6-ab8e-4c06-9b18-c78c3ca5e065"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/allabergenovvyacheslav/Diploma_Django.git&quot;,
+    &quot;accountId&quot;: &quot;f48d88a6-ab8e-4c06-9b18-c78c3ca5e065&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
