@@ -69,11 +69,11 @@ h2 {
 
 footer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     padding: 10px;
     background-color: #8a5832;
     color: #fff;
     position: fixed;
-    width: 100%;
-    bottom: 0;
+    height: 100vh;
 }
