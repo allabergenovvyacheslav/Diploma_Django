@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fad3d65-a538-439a-9c13-655f2bd6f8a9" name="Changes" comment="17/01/25 добавил Debug">
+    <list default="true" id="6fad3d65-a538-439a-9c13-655f2bd6f8a9" name="Changes" comment="17/01/25 debug.log">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/catalog/static/catalog/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/shop/catalog/static/catalog/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/shop/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/shop/debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/templates/catalog/product_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/catalog/product_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/templates/catalog/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/catalog/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/templates/catalog/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/catalog/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +140,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737130020358</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="17/01/25 добавил изображения в карточки товаров">
+      <option name="closed" value="true" />
+      <created>1737192473294</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1737192473294</updated>
+    </task>
+    <task id="LOCAL-00009" summary="17/01/25 debug.log">
+      <option name="closed" value="true" />
+      <created>1737192556666</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1737192556666</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -146,6 +165,8 @@
     <MESSAGE value="20/12/2024" />
     <MESSAGE value="17/01/25 добавил работу с API" />
     <MESSAGE value="17/01/25 добавил Debug" />
-    <option name="LAST_COMMIT_MESSAGE" value="17/01/25 добавил Debug" />
+    <MESSAGE value="17/01/25 добавил изображения в карточки товаров" />
+    <MESSAGE value="17/01/25 debug.log" />
+    <option name="LAST_COMMIT_MESSAGE" value="17/01/25 debug.log" />
   </component>
 </project>
