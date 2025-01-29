@@ -45,8 +45,8 @@ def contact_view(request):
 
 # Создание представления для каталога с пагинацией
 def product_list(request):
-    # Получаем все товары
-    products = Product.objects.all()
+    # Получаем все товары с сортировкой по id
+    products = Product.objects.all().order_by('-id')
     # Создаём пагинатор (3 товара на страницу)
     paginator = Paginator(products, 3)
     # Получаем текущую страницу из запроса
