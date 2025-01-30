@@ -25,6 +25,7 @@ main {
     clear: both;
     display: table;
 }
+
 [class*="col-"] {
     float: left;
     padding: 15px;
@@ -43,7 +44,7 @@ main {
 }
 
 a {
-    color: #402715;
+    color: #fff;
 }
 
 a:visited {
@@ -60,7 +61,7 @@ img {
 }
 
 h2 {
-    color: #333;
+    color: #5f030f;
 }
 
 .btn {
@@ -71,7 +72,7 @@ h2 {
 footer {
     display: flex;
     justify-content: center;
-    padding: 10px;
+    padding: 6px;
     background-color: #8a5832;
     color: #fff;
 }
